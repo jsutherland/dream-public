@@ -1,0 +1,19 @@
+name: Check and download missing sources
+description: Checks sources exist in Minio, if not - downloads, loads into SQL and catalogues in Datahub.
+
+inputs:
+- {name: sources config input path, type: Data, description: 'Path for input sources config.'}
+
+outputs:
+- {name: sources config output path, type: Data, description: 'Path for output sources config.'}
+
+
+implementation:
+  container:
+    image: jleighsutherland/kubeflow-component-check-and-download-sources
+    command: [
+      sh, 
+      /pipelines/component/src/init.sh,
+      {inputPath: sources config input path},
+      {outputPath: sources config output path}
+    ]

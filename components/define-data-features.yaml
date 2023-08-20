@@ -1,0 +1,23 @@
+name: Define data features
+description: Configures the feature store for easy upstream consumption of features. 
+
+inputs:
+- {name: sources config input path, type: Data, description: 'Path for input sources config.'}
+- {name: features config input path, type: Data, description: 'Path for input features config.'}
+- {name: feature set name, type: Data, description: 'Name to use for feature set.'}
+- {name: definitions path, type: Data, description: '-'}
+- {name: pipeline name, type: Data, description: '-'}
+
+
+implementation:
+  container:
+    image: jleighsutherland/define-data-features
+    command: [
+      sh, 
+      /pipelines/component/src/init.sh,
+      {inputPath: sources config input path},
+      {inputPath: features config input path},
+      {inputValue: feature set name},
+      {inputValue: definitions path},
+      {inputValue: pipeline name}
+    ]
