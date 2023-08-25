@@ -1,0 +1,19 @@
+name: Create Dataframe from Features
+description: Creates a point in time datafram from features.json passed to this. 
+
+inputs:
+- {name: features config input path, type: Data, description: 'Path for input features config.'}
+
+outputs:
+- {name: features dataframe path, type: Data, description: 'Path of saved out dataframe'}
+
+
+implementation:
+  container:
+    image: jleighsutherland/create-dataframe-from-features
+    command: [
+      sh, 
+      /pipelines/component/src/init.sh,
+      {inputPath: features config input path},
+      {outputPath: features dataframe path}
+    ]
