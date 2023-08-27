@@ -1,0 +1,17 @@
+name: [Model] XGBoost Easy Regression
+description: Supports models.json driven basic xgboost, with lags. 
+
+inputs:
+- {name: feature df input path, type: Data, description: 'Path for the pickled dataframe to load from'}
+- {name: models config input path, type: Data, description: 'Path for input sources config.'}
+
+
+implementation:
+  container:
+    image: jleighsutherland/model-xgboost-easy-regression
+    command: [
+      sh, 
+      /pipelines/component/src/init.sh,
+      {inputPath: feature df input path},
+      {inputPath: models config input path}
+    ]
