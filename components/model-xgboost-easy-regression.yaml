@@ -1,4 +1,4 @@
-name: [Model] XGBoost Easy Regression
+name: Model XGBoost Easy Regression
 description: Supports models.json driven basic xgboost, with lags. 
 
 inputs:
