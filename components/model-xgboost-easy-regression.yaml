@@ -5,6 +5,9 @@ inputs:
 - {name: feature df input path, type: Data, description: 'Path for the pickled dataframe to load from'}
 - {name: models config input path, type: Data, description: 'Path for input sources config.'}
 
+outputs:
+- {name: mlpipeline ui metadata path, type: Data, description: 'Path for metadata to be served from'}
+
 
 implementation:
   container:
@@ -13,5 +16,6 @@ implementation:
       sh, 
       /pipelines/component/src/init.sh,
       {inputPath: feature df input path},
-      {inputPath: models config input path}
+      {inputPath: models config input path},
+      {outputPath: mlpipeline ui metadata path},
     ]
