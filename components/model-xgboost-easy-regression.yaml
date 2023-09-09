@@ -19,3 +19,4 @@ implementation:
       {inputPath: models config input path},
       {outputPath: mlpipeline ui metadata path},
     ]
+    outputPath: mlpipeline ui metadata path
