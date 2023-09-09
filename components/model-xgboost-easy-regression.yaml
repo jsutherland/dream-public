@@ -12,11 +12,12 @@ outputs:
 implementation:
   container:
     image: jleighsutherland/model-xgboost-easy-regression
-    command: [
+    command: 
+    - [
       sh, 
       /pipelines/component/src/init.sh,
       {inputPath: feature df input path},
       {inputPath: models config input path},
       {outputPath: mlpipeline ui metadata path},
-    ],
-    outputPath: mlpipeline ui metadata path
+    ]
+    - outputPath: mlpipeline ui metadata path
